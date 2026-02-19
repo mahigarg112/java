@@ -22,13 +22,13 @@ public class Readwrite {
                 }
             }
 
-            // STEP 3: Update file (overwrite with new content)
-            try (FileWriter fw2 = new FileWriter(filename)) {
-                fw2.write("This content is UPDATED.\nJava File Handling Demo.");
+            // STEP 3: Append new content
+            try (FileWriter fw2 = new FileWriter(filename, true)) {
+                fw2.write("\nThis content is APPENDED.\nJava File Handling Demo.");
             }
 
             // STEP 4: Read AFTER update
-            System.out.println("\n\nAfter Update:");
+            System.out.println("\n\nAfter Append:");
             try (FileReader fr2 = new FileReader(filename)) {
                 int ch;
                 while ((ch = fr2.read()) != -1) {
@@ -41,4 +41,3 @@ public class Readwrite {
         }
     }
 }
-
